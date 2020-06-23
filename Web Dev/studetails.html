@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      STUDENT DETAILS
+    </title>
+    <style>
+      body {
+        background-color: thistle;
+        font-family: "Helvetica";
+      }
+      abbr {
+        text-decoration: none;
+      }
+      fieldset legend {
+        text-align: left;
+        font-size: 32px;
+        background-color: thistle;
+        color: teal;
+        font-family: "SF UI Display", "Segoe UI";
+      }
+      fieldset {
+        text-align: center;
+        border: 2px solid black;
+        background-color: blanchedalmond;
+      }
+      #endbtn {
+        background-color: cornflowerblue;
+        color: cornsilk;
+        padding: 5px;
+        border: 2px solid darkmagenta;
+        border-radius: 9px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 50px;
+        background-color: tomato;
+        color: whitesmoke;
+        border: 2px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      SUMMER TRAINING 2020
+      <hr />
+      SAMPLE FORM
+    </h1>
+    <form action="stuadd.html">
+      <fieldset>
+        <legend>
+          STUDENT DETAILS
+        </legend>
+        <label id="details">
+          NAME
+        </label>
+        <br />
+        <input type="text" name="stname" required="required" />
+        <br />
+
+        <label id="details">
+          <abbr title="UNIVERSITY">UNI</abbr> ROLL NO.
+          <br />
+        </label>
+        <input type="text" name="uniroll" required="required" />
+        <br />
+
+        <label id="details">
+          COLLEGE
+        </label>
+        <br />
+        <input type="text" name="college" required="required" />
+        <br />
+
+        <label id="details">
+          COURSE
+        </label>
+        <br />
+        <input type="text" name="course" required="required" />
+        <br />
+
+        <label id="details">
+          BRANCH
+        </label>
+        <br />
+        <input type="text" name="branch" required="required" />
+        <br />
+
+        <label id="details">
+          MOBILE
+        </label>
+        <br />
+        <input type="text" name="contact" required="required" />
+
+        <br />
+        <label id="details">
+          EMAIL ID
+        </label>
+        <br />
+        <input type="email" name="email" required="required" />
+        <br />
+
+        <label id="details"> GENDER <br /> </label>
+        <input type="radio" name="gender" value="MALE" />MALE <br />
+        &nbsp &nbsp
+        <input type="radio" name="gender" value="FEMALE" />FEMALE
+        <br />
+        <hr />
+        <label>
+          TEST DATE
+        </label>
+        <br />
+        <input type="date" name="date" />
+        <br />
+        <br />
+        <input type="submit" value="SAVE AND START TEST" id="endbtn" />
+      </fieldset>
+    </form>
+  </body>
+</html>
