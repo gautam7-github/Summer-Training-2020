@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      CANVAS
+    </title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>
+      SAMPLE CANVAS
+    </h1>
+    <canvas id="mycanvas" height="350" width="420"> </canvas>
+    <script>
+      var canvas = document.getElementById("mycanvas");
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#ff8000";
+      ctx.fillRect(20, 20, 380, 100);
+      ctx.fillStyle = "white";
+      ctx.fillRect(20, 120, 380, 100);
+      ctx.fillStyle = "green";
+      ctx.fillRect(20, 220, 380, 100);
+
+      ctx.beginPath();
+      ctx.arc(210, 170, 43, 0, 2 * Math.PI);
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(210, 170, 6, 0, 180);
+      ctx.fillStyle = "blue";
+      ctx.fill();
+
+      ctx.moveTo(210, 170);
+      ctx.lineTo(210, 127);
+      ctx.moveTo(210, 170);
+      ctx.lineTo(210, 213);
+
+      ctx.moveTo(210, 170);
+      ctx.lineTo(167, 170);
+      ctx.moveTo(210, 170);
+      ctx.lineTo(253, 170);
+
+      ctx.moveTo(210, 170);
+      ctx.lineTo(240, 200);
+      ctx.moveTo(210, 170);
+      ctx.lineTo(240, 140);
+
+      ctx.moveTo(210, 170);
+      ctx.lineTo(180, 140);
+      ctx.moveTo(210, 170);
+      ctx.lineTo(180, 200);
+
+      ctx.moveTo(210, 170);
+      ctx.lineTo(170, 155);
+      ctx.moveTo(210, 170);
+      ctx.lineTo(170, 187);
+
+      ctx.moveTo(210, 170);
+      ctx.lineTo(250, 187);
+      ctx.moveTo(210, 170);
+      ctx.lineTo(250, 155);
+
+      ctx.moveTo(210, 170);
+      ctx.lineTo(195, 129);
+      ctx.moveTo(210, 170);
+      ctx.lineTo(195, 210);
+
+      ctx.moveTo(210, 170);
+      ctx.lineTo(225, 129);
+      ctx.moveTo(210, 170);
+      ctx.lineTo(225, 210);
+
+      ctx.stroke();
+    </script>
+    <br />
+    <canvas id="canva2" height="100" width="420"></canvas>
+    <script>
+      var canva = document.getElementById("canva2");
+      var draw = canva.getContext("2d");
+
+      draw.font = "60px Futura";
+      draw.fillStyle = "#ff8000";
+      draw.textAlign = "center";
+      draw.fillText("JAI HIND", 210, 70);
+    </script>
+  </body>
+</html>
