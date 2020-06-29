@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 struct vehicle_details
 {
     char mnfctr[20];
@@ -8,6 +8,10 @@ struct vehicle_details
     char vname[20];
     char modelname[20];
     int vehicle_nmbr;
+    char buyer_name[30];
+    char buyer_contact[10];
+    char buyer_address[100];
+
 };
 int main()
 {
@@ -32,7 +36,7 @@ int choices()
     printf("\n Enter 1 to Add Entry\t\t||\t");
     printf(" Enter 2 to View Entrie(s) ");
     printf("\n Enter 3 to Search Entry\t||\t");
-    printf(" Enter 4 to Edit Entry \n\n");
+    printf(" Enter 4 to Delete All \n\n");
     printf(" ENTER YOUR DESIRED CHOICE: ");
     scanf("%i",&choice);
 
@@ -47,6 +51,7 @@ int choices()
     case 3:
         break;
     case 4:
+        delete();
         break;
     default:
         printf("OOPS....WRONG CHOICE\n");
@@ -84,13 +89,17 @@ void add()
         printf("ENTER VEHICLE NUMBER        : ");
         scanf("%d",&vehicles[i].vehicle_nmbr);
 
+        printf("ENTER BUYER NAME            : ");
+        scanf("%s",vehicles[i].buyer_name);
+
         printf("--------------------------------------------\n");
 
         fprintf(fptr,"MANUFACTURER          : %s  \n",vehicles[i].mnfctr);
         fprintf(fptr,"MANUFACTURING YEAR    : %i  \n",vehicles[i].mnfctr_year);
         fprintf(fptr,"VEHICLE NAME          : %s  \n",vehicles[i].vname);
         fprintf(fptr,"MODEL NAME            : %s  \n",vehicles[i].modelname);
-        fprintf(fptr,"VEHICLE NUMBER        : %i  \n\n",vehicles[i].vehicle_nmbr);
+        fprintf(fptr,"VEHICLE NUMBER        : %i  \n",vehicles[i].vehicle_nmbr);
+        fprintf(fptr,"BUYER NAME            : %s  \n\n",vehicles[i].buyer_name);
     }
     printf("\n %i ENTRIE(S) ADDED.....",n);
 
@@ -121,6 +130,29 @@ void full_displ()
             printf("%c",reader);
         }
     fclose(fptr);
+    }
+    getch();
+    system("cls");
+    display_menu();
+    choices();
+}
+void delete()
+{
+    char pass[10];
+    char defapass[6] = "12345";
+    printf("ENTER PASSWORD: ");
+    scanf("%s",pass);
+
+    if ((strcmp(defapass,pass))!=0)
+    {
+        printf("WRONG PASSWORD....\n");
+    }
+    else
+    {
+        FILE *fptr;
+        fptr = fopen("database.txt","w");
+        printf("ALL ENTRIES DELETED....\n");
+        fclose(fptr);
     }
     getch();
     system("cls");
