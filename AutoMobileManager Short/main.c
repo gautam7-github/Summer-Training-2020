@@ -22,7 +22,7 @@ struct vehicle_details
     char modelname[20];
     unsigned int vehicle_nmbr;
     unsigned int engine_cc;
-    char drive_sys[4];
+    char drive_sys[5];
     //buyer details
     char buyer_name[30];
     char buyer_contact[11];
@@ -136,7 +136,9 @@ void add()
     printf("\t\t\t|||  MAIN MENU --> ADD ENTRY  |||\n");
     for(i=0;i<n;i++)
     {
+        printf("\t____________________________\n");
         printf("\t\tVEHICLE %d\n\n",i+1);
+        printf("DATE & TIME : %s\n",ctime(&now));
         printf("VEHICLE DETAILS\n\n");
         printf("ENTER MANUFACTURER          : ");
         scanf("%s",vehicles[i].mnfctr);
