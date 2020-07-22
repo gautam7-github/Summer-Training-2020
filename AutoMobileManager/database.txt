@@ -1,9 +1,0 @@
---------------------------------------------
-MANUFACTURER          : tata
-MANUFACTURING YEAR    : 2018
-VEHICLE NAME          : baleno
-MODEL NAME            : vxis
-VEHICLE NUMBER        : 12653
-BUYER NAME            : g
-BUYER CONTACT         : 134522
---------------------------------------------

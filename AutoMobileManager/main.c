@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+#include <conio.h>
+#include <time.h>
 
 //functions
 void display_menu();
@@ -9,22 +11,24 @@ int choices();
 void add();
 void full_displ();
 void delete_ent();
+void exitprog();
 void edit();
-
 //structure containing all details for vehicle sales
 struct vehicle_details
 {
+    //vehicle details
     char mnfctr[20];
     unsigned int mnfctr_year;
     char vname[20];
     char modelname[20];
     unsigned int vehicle_nmbr;
-    char buyer_name[30];
-    char buyer_contact[10];
-    char buyer_address[100];
-    char drive_sys[4];
     unsigned int engine_cc;
-}vehicles[7];
+    char drive_sys[4];
+    //buyer details
+    char buyer_name[30];
+    char buyer_contact[11];
+    char buyer_address[100];
+}vehicles[8];
 
 int n;
 
@@ -61,8 +65,8 @@ int choices()
     printf("\t\t\t\t-----------------------------------\n");
     printf("\t\t\t\t  ||\t1. ADD ENTRY    \t||\n");
     printf("\t\t\t\t  ||\t2. VIEW RECORD  \t||\n");
-    printf("\t\t\t\t  ||\t3. EDIT RECORD  \t||\n");
-    printf("\t\t\t\t  ||\t4. DELETE RECORD\t||\n");
+    printf("\t\t\t\t  ||\t3. DELETE RECORD\t||\n");
+    printf("\t\t\t\t  ||\t4. EDIT RECORD  \t||\n");
     printf("\t\t\t\t  ||\t5. EXIT MANAGER \t||\n");
     printf("\t\t\t\t-----------------------------------\n");
     printf(" ENTER YOUR DESIRED CHOICE: ");
@@ -77,19 +81,17 @@ int choices()
         full_displ();
         break;
     case 3:
-        edit();
-        break;
-    case 4:
         delete_ent();
         break;
-    case 5:
-        system("cls");
-        printf("\n\t\t\t\t\t EXITING");
-        Sleep(1000);
-        exit(EXIT_SUCCESS);
-    default:
-        printf("OOPS....WRONG CHOICE\n");
+    case 4:
+        edit();
         break;
+    case 5:
+        exitprog();
+        break;
+    default:
+        printf(" OOPS....WRONG CHOICE\n");
+        printf("PRESS ENTER TO RETRY....\n");
         getch();
         system("cls");
     }
@@ -99,6 +101,9 @@ void add()
 {
     int i;
 
+    time_t now;
+    time(&now);
+
     printf("\t\t\t||  ADD ENTRY  ||\n\n");
     printf("HOW MANY ENTRIES DO YOU WANT TO ADD? : ");
     scanf("%i",&n);
@@ -106,18 +111,39 @@ void add()
     if (n<=0)
     {
         printf("PLEASE ENTER VALID NUMBER....");
-        return 0;
     }
+    else
+    {
+        if(n>7)
+        {
+            printf("NUMBER OF ENTRIES IS MORE THAN 7\n");
+            printf("YOU WILL NOT BE ABLE TO USE EDIT OPTION\n");
+            printf("CONFIRM BY PRESSING y : ");
+            Sleep(2000);
+            char a = getch();
 
+            if(a == 'y')
+            {
+                struct vehicle_details vehicles[n];
+            }
+            else
+            {
+                exit(0);
+            }
+        }
+    }
     system("cls");
 
     FILE *fptr;
 
     fptr = fopen("database.txt","a+");
 
+    printf("\t\t\t|||  MAIN MENU --> ADD ENTRY  |||\n\n");
     for(i=0;i<n;i++)
     {
         printf("\t\tVEHICLE %d\n\n",i+1);
+        printf("DATE-TIME : %s",ctime(&now));
+        printf("VEHICLE DETAILS\n\n");
         printf("ENTER MANUFACTURER          : ");
         scanf("%s",vehicles[i].mnfctr);
 
@@ -133,41 +159,61 @@ void add()
         printf("ENTER VEHICLE NUMBER        : ");
         scanf("%u",&vehicles[i].vehicle_nmbr);
 
+        printf("ENTER ENGINE POWER IN CC    : ");
+        scanf("%u",&vehicles[i].engine_cc);
+
+        printf("ENTER TRANSMISSION STYLE    : ");
+        scanf("%s",&vehicles[i].drive_sys);
+
+        printf("\nBUYER DETAILS\n");
+
         printf("ENTER BUYER NAME            : ");
         scanf("%s",vehicles[i].buyer_name);
 
         printf("ENTER BUYER CONTACT         : ");
         scanf("%s",vehicles[i].buyer_contact);
+        fflush(stdin);
+
+        printf("ENTER BUYER ADDRESS         : ");
+        fgets(vehicles[i].buyer_address, 100, stdin);
+
 
         printf("--------------------------------------------\n");
 
-        //writing to file database.txt with file handler fptr
+        //writing to file database-short.txt with file handler fptr
         fprintf(fptr,"--------------------------------------------\n");
+        fprintf(fptr,"%s\n",ctime(&now));
+        fprintf(fptr,"VEHICLE DETAILS\n");
         fprintf(fptr,"MANUFACTURER          : %s\n",vehicles[i].mnfctr);
         fprintf(fptr,"MANUFACTURING YEAR    : %u\n",vehicles[i].mnfctr_year);
         fprintf(fptr,"VEHICLE NAME          : %s\n",vehicles[i].vname);
         fprintf(fptr,"MODEL NAME            : %s\n",vehicles[i].modelname);
         fprintf(fptr,"VEHICLE NUMBER        : %u\n",vehicles[i].vehicle_nmbr);
+        fprintf(fptr,"ENGINE CC             : %u\n",vehicles[i].engine_cc);
+        fprintf(fptr,"BUYER DETAILS\n");
         fprintf(fptr,"BUYER NAME            : %s\n",vehicles[i].buyer_name);
         fprintf(fptr,"BUYER CONTACT         : %s\n",vehicles[i].buyer_contact);
+        fprintf(fptr,"BUYER ADDRESS         : %s\n",vehicles[i].buyer_address);
         fprintf(fptr,"--------------------------------------------\n");
 
     }
+    fflush(stdin);
     printf("\n %i ENTRIE(S) ADDED.....",n);
 
     fclose(fptr);
 
     getch();
     system("cls");
-    //main();
 }
 void full_displ()
 {
     system("cls");
     char reader,str[60];
 
+    printf("\n\t\t\t|||  MAIN MENU --> VIEW ALL ENTRIES  |||\n\n");
+    printf(" READING FILE......\n\n");
+    Sleep(1000);
     FILE *fptr;
-
     fptr = fopen("database.txt","r");
 
     if (fptr == NULL)
@@ -201,7 +247,6 @@ void full_displ()
 }
 void delete_ent()
 {
-    system("cls");
     char pass[10];
     char defapass[6] = "12345";
     printf("ENTER PASSWORD: ");
@@ -221,13 +266,35 @@ void delete_ent()
     getch();
     system("cls");
 }
+void exitprog()
+{
+    printf("ARE YOU SURE ? ");
+    printf("y/n\n");
+    char c = getche();
+    if(c == 'y')
+    {
+        printf("\t\t\t\t\tGOODBYE.....");
+        exit(EXIT_SUCCESS);
+    }
+    else if(c != 'n')
+    {
+        printf("RETRY\n");
+        Sleep(1000);
+        exitprog();
+    }
+    else
+    {
+        printf("\nGOOD CHOICE.....");
+        Sleep(1000);
+    }
+}
 void edit()
 {
     system("cls");
     puts("\t\t\tEDITOR");
 
     printf("YOUR ENTRIES ARE : \n\n");
-
+    int editor;
     for(int i=0;i<n;i++)
     {
         printf("ENTRY %d\n",i+1);
