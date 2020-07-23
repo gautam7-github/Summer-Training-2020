@@ -166,6 +166,12 @@ void add()
         printf("ENTER TRANSMISSION STYLE    : ");
         scanf("%s",vehicles[i].trans_sys);
 
+        printf("ENTER VEHICLE WEIGHT        : ");
+        scanf("%u",&vehicles[i].weight);
+
+        printf("ENTER VEHICLE COLOR         : ");
+        scanf("%s",vehicles[i].vcolor);
+
         printf("\nBUYER DETAILS\n");
 
         printf("ENTER BUYER NAME            : ");
@@ -198,6 +204,8 @@ void add()
         fprintf(fptr,"VEHICLE NUMBER        : %u\n",vehicles[i].vehicle_nmbr);
         fprintf(fptr,"ENGINE CC             : %u\n",vehicles[i].engine_cc);
         fprintf(fptr,"TRANSMISSION STYLE    : %s\n",vehicles[i].trans_sys);
+        fprintf(fptr,"VEHICLE WEIGHT        : %u\n",vehicles[i].weight);
+        fprintf(fptr,"VEHICLE COLOR         : %s\n",vehicles[i].vcolor);
         fprintf(fptr,"\n--BUYER DETAILS--\n");
         fprintf(fptr,"BUYER NAME            : %s\n",vehicles[i].buyer_name);
         fprintf(fptr,"BUYER CONTACT         : %s\n",vehicles[i].buyer_contact);

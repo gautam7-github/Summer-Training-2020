@@ -1,19 +1,44 @@
 --------------------------------------------
-Thu Jul 23 15:50:47 2020
+Thu Jul 23 16:01:05 2020
 
 --VEHICLE DETAILS--
 MANUFACTURER          : tata
 VEHICLE NAME          : nano
 MANUFACTURING YEAR    : 2010
 MODEL NAME            : vxi
-VEHICLE NUMBER        : 18881
-ENGINE CC             : 190
+VEHICLE NUMBER        : 19772
+ENGINE CC             : 1989
 TRANSMISSION STYLE    : m
+VEHICLE WEIGHT        : 1990
+VEHICLE COLOR         : grey
+
+--BUYER DETAILS--
+BUYER NAME            : g
+BUYER CONTACT         : 17881
+BUYER ADDRESS         : jshjjsk
+
+--PRICING--
+SHOW-ROOM PRICING     : 1.2
+ON-ROAD PRICING       : 1
+--------------------------------------------
+--------------------------------------------
+Thu Jul 23 16:02:28 2020
+
+--VEHICLE DETAILS--
+MANUFACTURER          : tata
+VEHICLE NAME          : nano
+MANUFACTURING YEAR    : 2010
+MODEL NAME            : vxi
+VEHICLE NUMBER        : 19766112
+ENGINE CC             : 190
+TRANSMISSION STYLE    : M
+VEHICLE WEIGHT        : 1990
+VEHICLE COLOR         : Grey
 
 --BUYER DETAILS--
 BUYER NAME            : gautam
-BUYER CONTACT         : 18781
-BUYER ADDRESS         : jhsjss
+BUYER CONTACT         : 985527872
+BUYER ADDRESS         : bathinda
 
 --PRICING--
 SHOW-ROOM PRICING     : 1.2L
