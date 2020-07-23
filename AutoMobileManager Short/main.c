@@ -17,16 +17,21 @@ struct vehicle_details
 {
     //vehicle details
     char mnfctr[20];
-    unsigned int mnfctr_year;
     char vname[20];
+    unsigned int mnfctr_year;
     char modelname[20];
     unsigned int vehicle_nmbr;
     unsigned int engine_cc;
-    char drive_sys[5];
+    char trans_sys[5];
+    unsigned int weight;
+    char vcolor[10];
     //buyer details
     char buyer_name[30];
     char buyer_contact[11];
     char buyer_address[100];
+    //pricing
+    char showroom_price[8];
+    char on_road_price[8];
 }vehicles[8];
 
 int n;
@@ -143,11 +148,11 @@ void add()
         printf("ENTER MANUFACTURER          : ");
         scanf("%s",vehicles[i].mnfctr);
 
-        printf("ENTER MANUFACTURING YEAR    : ");
-        scanf("%u",&vehicles[i].mnfctr_year);
-
         printf("ENTER VEHICLE NAME          : ");
         scanf("%s",vehicles[i].vname);
+
+        printf("ENTER MANUFACTURING YEAR    : ");
+        scanf("%u",&vehicles[i].mnfctr_year);
 
         printf("ENTER MODEL NAME            : ");
         scanf("%s",vehicles[i].modelname);
@@ -159,7 +164,7 @@ void add()
         scanf("%u",&vehicles[i].engine_cc);
 
         printf("ENTER TRANSMISSION STYLE    : ");
-        scanf("%s",&vehicles[i].drive_sys);
+        scanf("%s",vehicles[i].trans_sys);
 
         printf("\nBUYER DETAILS\n");
 
@@ -172,24 +177,34 @@ void add()
 
         printf("ENTER BUYER ADDRESS         : ");
         fgets(vehicles[i].buyer_address, 100, stdin);
+        fflush(stdin);
 
+        printf("\nPRICING\n");
+        printf("ENTER SHOW ROOM PRICE       : ");
+        scanf("%s",vehicles[i].showroom_price);
+        printf("ENTER ON ROAD PRICE         : ");
+        scanf("%s",vehicles[i].on_road_price);
 
         printf("--------------------------------------------\n");
 
         //writing to file database-short.txt with file handler fptr
         fprintf(fptr,"--------------------------------------------\n");
         fprintf(fptr,"%s\n",ctime(&now));
-        fprintf(fptr,"VEHICLE DETAILS\n");
+        fprintf(fptr,"--VEHICLE DETAILS--\n");
         fprintf(fptr,"MANUFACTURER          : %s\n",vehicles[i].mnfctr);
-        fprintf(fptr,"MANUFACTURING YEAR    : %u\n",vehicles[i].mnfctr_year);
         fprintf(fptr,"VEHICLE NAME          : %s\n",vehicles[i].vname);
+        fprintf(fptr,"MANUFACTURING YEAR    : %u\n",vehicles[i].mnfctr_year);
         fprintf(fptr,"MODEL NAME            : %s\n",vehicles[i].modelname);
         fprintf(fptr,"VEHICLE NUMBER        : %u\n",vehicles[i].vehicle_nmbr);
         fprintf(fptr,"ENGINE CC             : %u\n",vehicles[i].engine_cc);
-        fprintf(fptr,"BUYER DETAILS\n");
+        fprintf(fptr,"TRANSMISSION STYLE    : %s\n",vehicles[i].trans_sys);
+        fprintf(fptr,"\n--BUYER DETAILS--\n");
         fprintf(fptr,"BUYER NAME            : %s\n",vehicles[i].buyer_name);
         fprintf(fptr,"BUYER CONTACT         : %s\n",vehicles[i].buyer_contact);
         fprintf(fptr,"BUYER ADDRESS         : %s\n",vehicles[i].buyer_address);
+        fprintf(fptr,"--PRICING--\n");
+        fprintf(fptr,"SHOW-ROOM PRICING     : %s\n",vehicles[i].showroom_price);
+        fprintf(fptr,"ON-ROAD PRICING       : %s\n",vehicles[i].on_road_price);
         fprintf(fptr,"--------------------------------------------\n");
 
     }

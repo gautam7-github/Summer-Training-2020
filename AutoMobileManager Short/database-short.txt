@@ -1,16 +1,21 @@
 --------------------------------------------
-Tue Jul 21 13:08:43 2020
+Thu Jul 23 15:50:47 2020
 
-VEHICLE DETAILS
+--VEHICLE DETAILS--
 MANUFACTURER          : tata
-MANUFACTURING YEAR    : 2010
 VEHICLE NAME          : nano
+MANUFACTURING YEAR    : 2010
 MODEL NAME            : vxi
-VEHICLE NUMBER        : 1298763
-ENGINE CC             : 100
-BUYER DETAILS
-BUYER NAME            : gautam
-BUYER CONTACT         : 9780060631
-BUYER ADDRESS         : model town, bathinda
+VEHICLE NUMBER        : 18881
+ENGINE CC             : 190
+TRANSMISSION STYLE    : m
 
+--BUYER DETAILS--
+BUYER NAME            : gautam
+BUYER CONTACT         : 18781
+BUYER ADDRESS         : jhsjss
+
+--PRICING--
+SHOW-ROOM PRICING     : 1.2L
+ON-ROAD PRICING       : 1L
 --------------------------------------------
