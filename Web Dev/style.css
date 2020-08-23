@@ -1,47 +1,59 @@
 body {
-  background-color: thistle;
+	background-color: thistle;
 }
 h1 {
-  background-color: tomato;
-  border: 2px solid black;
-  font-family: "HelveticaNeue", "Segoe UI";
-  padding-left: 30%;
-  color: white;
+	background-color: tomato;
+	border: 2px solid black;
+	font-family: "Helvetica", "Segoe UI";
+	padding-left: 30%;
+	color: white;
 }
 h2 {
-  font-family: "SF Pro Display", "Arial";
-  padding-left: 20%;
-  padding-bottom: 10px;
-  background-color: tomato;
-  color: white;
-  border: 2px solid black;
+	font-family: "SF Pro Display", "Arial";
+	padding-left: 20%;
+	padding-bottom: 10px;
+	background-color: tomato;
+	color: white;
+	border: 2px solid black;
 }
 h2 img {
-  margin: 0px;
-  padding-left: 30%;
+	margin: 0px;
+	padding-left: 30%;
 }
-button {
-  border: 2px solid darkmagenta;
-  width: 200px;
-  background-color: cornflowerblue;
-  color: cornsilk;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  border-radius: 9px;
+nav {
+	width: 100%;
+	overflow: hidden;
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+nav button {
+	float: left;
+	margin: 0;
+	padding: 20px 25px;
+	border: 2px solid darkmagenta;
+	background-color: cornflowerblue;
+}
+nav button.active {
+	background-color: chocolate;
+	color: white;
+}
+nav button:hover {
+	transform: scale(1.2);
 }
 abbr {
-  text-decoration: none;
+	text-decoration: none;
 }
 address {
-  font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 address img {
-  margin-left: 40px;
-  width: 400px;
-  border: 1px solid sienna;
-  height: 200px;
-  margin-left: 150px;
+	margin-left: 40px;
+	width: 400px;
+	border: 1px solid sienna;
+	height: 200px;
+	margin-left: 150px;
 }
 hr {
-  border: 2px solid salmon;
+	border: 2px solid salmon;
 }
